@@ -111,12 +111,12 @@
 				  // The URL of the model file
 				  `three/models/Car.gltf`,
 				  // Called when the model is loaded
-				  function (fbx) {
+				  function (gltf) {
 				    // Set the model's position to the reticle's position
-				    fbx.position.copy(reticle.position);
+				    gltf.position.copy(reticle.position);
 
 				    // Add the model to the scene
-				    scene.add(fbx);
+				    scene.add(gltf);
 				  },
 				  // Called while the model is loading
 				  function (xhr) {
