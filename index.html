@@ -20,8 +20,8 @@
 			{
 				"imports": {
 					"three": "./build/three.module.js",
-					"three/addons/": "./jsm/"
-          "three/models/": "./Models/"
+					"three/addons/": "./jsm/",
+          				"three/models/": "./Models/"
 				}
 			}
 		</script>
@@ -30,10 +30,7 @@
 
 			import * as THREE from 'three';
 			import { ARButton } from 'three/addons/webxr/ARButton.js';
-      import { FBXLoader } from 'three/addons/loders/GLTFLoder.js'
-
-      const urlParams = new URLSearchParams(window.location.search);
-      const modelName = urlParams.get('model');
+                        import { FBXLoader } from 'three/addons/loders/GLTFLoder.js'
 
 			let container;
 			let camera, scene, renderer;
@@ -43,7 +40,7 @@
 
 			let hitTestSource = null;
 			let hitTestSourceRequested = false;
-      let ObjectPlaced = false;
+                        let ObjectPlaced = false;
 
 			init();
 			animate();
@@ -82,9 +79,9 @@
 					if ( reticle.visible ) {
 
 						if (modelName) {
-              loadModel(modelName);
-              ObjectPlaced = true;
-            }
+               						loadModel('Car');
+              						ObjectPlaced = true;
+            					}
             
 					}
 
@@ -108,29 +105,29 @@
 
 			}
 
-      function loadModel(modelName) {
-        const loader = new THREE.GLTFLoader();
-        loader.load(
-          // The URL of the model file
-          `three/models/${modelName}.gltf`,
-          // Called when the model is loaded
-          function (fbx) {
-            // Set the model's position to the reticle's position
-            fbx.position.copy(reticle.position);
+			      function loadModel(modelName) {
+				const loader = new THREE.GLTFLoader();
+				loader.load(
+				  // The URL of the model file
+				  `three/models/${modelName}.gltf`,
+				  // Called when the model is loaded
+				  function (fbx) {
+				    // Set the model's position to the reticle's position
+				    fbx.position.copy(reticle.position);
 
-            // Add the model to the scene
-            scene.add(fbx);
-          },
-          // Called while the model is loading
-          function (xhr) {
-            console.log(`${modelName} is ${xhr.loaded / xhr.total * 100}% loaded`);
-          },
-          // Called if there's an error loading the model
-          function (error) {
-            console.error(`Error loading ${modelName}: ${error}`);
-          }
-        );
-      }
+				    // Add the model to the scene
+				    scene.add(fbx);
+				  },
+				  // Called while the model is loading
+				  function (xhr) {
+				    console.log(`${modelName} is ${xhr.loaded / xhr.total * 100}% loaded`);
+				  },
+				  // Called if there's an error loading the model
+				  function (error) {
+				    console.error(`Error loading ${modelName}: ${error}`);
+				  }
+				);
+			      }
 
 
 			function onWindowResize() {
