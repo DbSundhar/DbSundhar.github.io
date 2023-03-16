@@ -79,7 +79,7 @@
 					if ( reticle.visible ) {
 
 						if (modelName) {
-               						loadModel('Car');
+               						loadModel();
               						ObjectPlaced = true;
             					}
             
@@ -105,11 +105,11 @@
 
 			}
 
-			      function loadModel(modelName) {
+			      function loadModel() {
 				const loader = new THREE.GLTFLoader();
 				loader.load(
 				  // The URL of the model file
-				  `three/models/${modelName}.gltf`,
+				  `three/models/Car.gltf`,
 				  // Called when the model is loaded
 				  function (fbx) {
 				    // Set the model's position to the reticle's position
@@ -120,11 +120,11 @@
 				  },
 				  // Called while the model is loading
 				  function (xhr) {
-				    console.log(`${modelName} is ${xhr.loaded / xhr.total * 100}% loaded`);
+				    console.log(`Car is ${xhr.loaded / xhr.total * 100}% loaded`);
 				  },
 				  // Called if there's an error loading the model
 				  function (error) {
-				    console.error(`Error loading ${modelName}: ${error}`);
+				    console.error(`Error loading Car: ${error}`);
 				  }
 				);
 			      }
