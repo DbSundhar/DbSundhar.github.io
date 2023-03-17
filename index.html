@@ -94,7 +94,7 @@
 
 						//if (modelName) {
     						let Clone = Model.clone();
-						Clone.position.copy(reticle.position);
+						reticle.matrix.decompose( Clone.position, Clone.quaternion, Clone.scale );
 						scene.add(Clone);
               					ObjectPlaced = true;
 						reticle.visible = false;
@@ -122,29 +122,29 @@
 
 			}
 
-			      function loadModel() {
-				const loader = new GLTFLoader();
-				loader.load(
+			      //function loadModel() {
+				//const loader = new GLTFLoader();
+				//loader.load(
 				  // The URL of the model file
-				  `three/models/ferrari.glb`,
+				 // `three/models/ferrari.glb`,
 				  // Called when the model is loaded
-				  function (gltf) {
+				  //function (gltf) {
 				    // Set the model's position to the reticle's position
-				    gltf.scene.position.copy(reticle.position);
+				   // gltf.scene.position.copy(reticle.position);
 
 				    // Add the model to the scene
-				    scene.add(gltf.scene);
-				  },
+				   // scene.add(gltf.scene);
+				 // },
 				  // Called while the model is loading
-				  function (xhr) {
-				    console.log(`Car is ${xhr.loaded / xhr.total * 100}% loaded`);
-				  },
+				  //function (xhr) {
+				 //   console.log(`Car is ${xhr.loaded / xhr.total * 100}% loaded`);
+				  //},
 				  // Called if there's an error loading the model
-				  function (error) {
-				    console.error(`Error loading Car: ${error}`);
-				  }
-				);
-			      }
+				  //function (error) {
+				  //  console.error(`Error loading Car: ${error}`);
+				  //}
+				//);
+			      //}
 
 
 			function onWindowResize() {
