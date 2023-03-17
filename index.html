@@ -80,10 +80,10 @@
 				let Model;
 				loader.load(
 				  // The URL of the model file
-				  `Models/ferrari.fbx`,
+				  `Models/ferrari.glb`,
 				  // Called when the model is loaded
 				  function (gltf) {
-				    Model = gltf;
+				    Model = gltf.scene;
 				  }
 				 
 				);
