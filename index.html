@@ -80,7 +80,12 @@
 					if ( reticle.visible ) {
 
 						//if (modelName) {
-               					loadModel();
+               					new GLTFLoader()
+						.setPath( 'three/models/' )
+						.load( 'ferrari.glb', function ( gltf ) {
+							gltf.scene.position.copy(reticle.position);
+							scene.add( gltf.scene );
+						} );
               					ObjectPlaced = true;
 						reticle.visible = false;
             					//}
