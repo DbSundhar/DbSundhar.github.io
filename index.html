@@ -73,19 +73,25 @@
 
 				//
 
-				const geometry = new THREE.CylinderGeometry( 0.1, 0.1, 0.2, 32 ).translate( 0, 0.1, 0 );
+				const loader = new THREE.GLTFLoader();
+				let Model;
+				loader.load(
+				  // The URL of the model file
+				  `three/models/ferrari.glb`,
+				  // Called when the model is loaded
+				  function (gltf) {
+				    Model = gltf.scene;
+				  },
+				 
+				);
 
 				function onSelect() {
 
 					if ( reticle.visible ) {
 
 						//if (modelName) {
-               					new GLTFLoader()
-						.setPath( 'three/models/' )
-						.load( 'ferrari.glb', function ( gltf ) {
-							gltf.scene.position.copy(reticle.position);
-							scene.add( gltf.scene );
-						} );
+    						let clone = Model.clone();
+						scene.add(clone);
               					ObjectPlaced = true;
 						reticle.visible = false;
             					//}
