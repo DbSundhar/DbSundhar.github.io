@@ -78,10 +78,10 @@
 
 					if ( reticle.visible ) {
 
-						if (modelName) {
+						//if (modelName) {
                						loadModel();
               						ObjectPlaced = true;
-            					}
+            					//}
             
 					}
 
@@ -109,11 +109,11 @@
 				const loader = new GLTFLoader();
 				loader.load(
 				  // The URL of the model file
-				  `three/models/Car.gltf`,
+				  `three/models/ferrari.glb`,
 				  // Called when the model is loaded
 				  function (gltf) {
 				    // Set the model's position to the reticle's position
-				    gltf.position.copy(reticle.position);
+				    gltf.scene.position.copy(reticle.position);
 
 				    // Add the model to the scene
 				    scene.add(gltf);
