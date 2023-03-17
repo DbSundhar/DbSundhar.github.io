@@ -79,8 +79,9 @@
 					if ( reticle.visible ) {
 
 						//if (modelName) {
-               						loadModel();
-              						ObjectPlaced = true;
+               					loadModel();
+              					ObjectPlaced = true;
+						reticle.visible = false;
             					//}
             
 					}
@@ -116,7 +117,7 @@
 				    gltf.scene.position.copy(reticle.position);
 
 				    // Add the model to the scene
-				    scene.add(gltf);
+				    scene.add(gltf.scene);
 				  },
 				  // Called while the model is loading
 				  function (xhr) {
