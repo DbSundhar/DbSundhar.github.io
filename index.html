@@ -80,7 +80,7 @@
 				let Model;
 				loader.load(
 				  // The URL of the model file
-				  `Models/ferrari.fbx`,
+				  `three/models/ferrari.fbx`,
 				  // Called when the model is loaded
 				  function (fbx) {
 				    Model = fbx;
@@ -93,9 +93,9 @@
 					if ( reticle.visible ) {
 
 						//if (modelName) {
-    						let clone = Model.clone();
-						clone.position.copy(reticle.position);
-						scene.add(clone);
+    						let Clone = Model.clone();
+						Clone.position.copy(reticle.position);
+						scene.add(Clone);
               					ObjectPlaced = true;
 						reticle.visible = false;
             					//}
