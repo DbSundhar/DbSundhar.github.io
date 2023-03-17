@@ -31,7 +31,7 @@
 
 			import * as THREE from 'three';
 			import { ARButton } from 'three/addons/webxr/ARButton.js';
-                        import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+                        import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
 
 			let container;
 			let camera, scene, renderer;
@@ -73,14 +73,14 @@
 
 				//
 
-				const loader = new GLTFLoader();
+				const loader = new FBXLoader();
 				let Model;
 				loader.load(
 				  // The URL of the model file
-				  `Models/ferrari.glb`,
+				  `Models/Pussinboots2.fbx`,
 				  // Called when the model is loaded
-				  function (gltf) {
-				    Model = gltf.scene;
+				  function (fbx) {
+				    Model = fbx;
 				  }
 				 
 				);
@@ -91,6 +91,7 @@
 
 						//if (modelName) {
     						let clone = Model.clone();
+						clone.position.copy(reticle.position);
 						scene.add(clone);
               					ObjectPlaced = true;
 						reticle.visible = false;
