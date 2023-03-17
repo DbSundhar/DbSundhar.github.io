@@ -31,8 +31,8 @@
 
 			import * as THREE from 'three';
 			import { ARButton } from 'three/addons/webxr/ARButton.js';
-                        import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-			import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+                        import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
+			//import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 
 			let container;
 			let camera, scene, renderer;
@@ -74,16 +74,16 @@
 
 				//
 
-				const loader = new GLTFLoader();
-				const dracoloder = new DRACOLoader();
-				loader.setDRACOLoader(dracoloder);
+				const loader = new FBXLoader();
+				//const dracoloder = new DRACOLoader();
+				//loader.setDRACOLoader(dracoloder);
 				let Model;
 				loader.load(
 				  // The URL of the model file
-				  `Models/ferrari.glb`,
+				  `Models/Bike.fbx`,
 				  // Called when the model is loaded
-				  function (gltf) {
-				    Model = gltf.scene;
+				  function (fbx) {
+				    Model = fbx;
 				  }
 				 
 				);
