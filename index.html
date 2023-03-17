@@ -75,6 +75,7 @@
 				//
 
 				const loader = new FBXLoader();
+				const rotation = new THREE.Quaternion();
 				//const dracoloder = new DRACOLoader();
 				//loader.setDRACOLoader(dracoloder);
 				let Model;
@@ -94,7 +95,7 @@
 
 						//if (modelName) {
     						let Clone = Model.clone();
-						reticle.matrix.decompose( Clone.position, Clone.quaternion, Clone.scale );
+						reticle.matrix.decompose( Clone.position, rotation, Clone.scale );
 						scene.add(Clone);
               					ObjectPlaced = true;
 						reticle.visible = false;
