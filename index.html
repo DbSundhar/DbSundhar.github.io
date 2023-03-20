@@ -36,7 +36,7 @@
 			
 			const urlParams = new URLSearchParams(window.location.search);
     			const modelName = urlParams.get('model');
-			const modelPatth = `Models/'+ modelName +'.fbx';
+			const modelPath = modelName +'.fbx';
 
 			let container;
 			let camera, scene, renderer;
@@ -85,7 +85,7 @@
 				let Model;
 				loader.load(
 				  // The URL of the model file
-				  modelPath,
+				  'Models/' + modelPath,
 				  // Called when the model is loaded
 				  function (fbx) {
 				    Model = fbx;
