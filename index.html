@@ -33,6 +33,10 @@
 			import { ARButton } from 'three/addons/webxr/ARButton.js';
                         import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
 			//import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+			
+			const urlParams = new URLSearchParams(window.location.search);
+    			const modelName = urlParams.get('model');
+			const modelPatth = `Models/'+ modelName +'.fbx';
 
 			let container;
 			let camera, scene, renderer;
@@ -81,7 +85,7 @@
 				let Model;
 				loader.load(
 				  // The URL of the model file
-				  `Models/ferrari.fbx`,
+				  modelPath,
 				  // Called when the model is loaded
 				  function (fbx) {
 				    Model = fbx;
