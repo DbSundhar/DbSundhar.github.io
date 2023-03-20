@@ -17,10 +17,10 @@ a:hover {
 	text-decoration: underline;
 }
 
-button {
+/*button {
 	cursor: pointer;
 	text-transform: uppercase;
-}
+}*/
 
 #info {
 	position: absolute;
@@ -37,7 +37,7 @@ button {
 	z-index: 1; /* TODO Solve this in HTML */
 }
 
-a, button, input, select {
+a, /*button,*/ input, select {
 	pointer-events: auto;
 }
 
