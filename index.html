@@ -89,7 +89,8 @@
 				  'Models/' + modelPath,
 				  // Called when the model is loaded
 				  function (fbx) {
-				    Model = fbx;
+				  	Model = fbx;
+					Model.scale.set(1,1,1);
 				  }
 				 
 				);
