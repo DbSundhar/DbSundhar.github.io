@@ -43,6 +43,7 @@
 			let controller;
 
 			let reticle;
+			let Clone;
 
 			let hitTestSource = null;
 			let hitTestSourceRequested = false;
@@ -100,7 +101,7 @@
 					if ( reticle.visible ) {
 
 						//if (modelName) {
-    						let Clone = Model.clone();
+    						Clone = Model.clone();
 						reticle.matrix.decompose( Clone.position, rotation, scale );
 						scene.add(Clone);
               					ObjectPlaced = true;
@@ -126,9 +127,16 @@
 				//
 
 				window.addEventListener( 'resize', onWindowResize );
+				window.addEventListener( 'unload', destroyModel );
 
 			}
-
+			
+			function destroyModel(){
+				scene.remove(Clone);
+				ObjectPlaced = false;
+			}
+			
+			
 			      //function loadModel() {
 				//const loader = new GLTFLoader();
 				//loader.load(
